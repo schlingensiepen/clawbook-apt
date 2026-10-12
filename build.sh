@@ -84,6 +84,8 @@ check_package() {
   c=$dir/control
   [ -f "$c" ] || die "$name: control is missing"
   [ -f "$dir/copyright" ] || die "$name: copyright is missing"
+  # User documentation, shipped as /usr/share/doc/<package>/README.md
+  [ -s "$dir/README.md" ] || die "$name: README.md (user documentation) is missing"
   [ "$(field "$c" Package)" = "$name" ] || die "$name: Package field differs from directory name"
   local f
   for f in Version Architecture Maintainer Description X-Clawbook-Art; do
@@ -165,6 +167,7 @@ build_package() {
 
   [ ! -d "$dir/files" ] || cp -a "$dir/files/." "$stage/"
   install -D -m 0644 "$dir/copyright" "$stage/usr/share/doc/$name/copyright"
+  install -D -m 0644 "$dir/README.md" "$stage/usr/share/doc/$name/README.md"
   if [ -f "$dir/vscode-extensions.list" ]; then
     install -D -m 0644 "$dir/vscode-extensions.list" \
       "$stage/usr/share/clawbook/vscode-extensions.d/$name.list"

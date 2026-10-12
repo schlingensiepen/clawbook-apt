@@ -1,5 +1,5 @@
 Package: clawbook-python
-Version: 0.8.0-1
+Version: 0.8.0-2
 Architecture: amd64
 Maintainer: clawbook-lehre <noreply@github.com>
 Depends: python3, python3-venv, python3-pytest

@@ -1,5 +1,5 @@
 Package: kurs-inf
-Version: 0.8.0-1
+Version: 0.8.0-2
 Architecture: all
 Maintainer: clawbook-lehre <noreply@github.com>
 Depends: clawbook-spring, clawbook-webapi, clawbook-db-sqlite

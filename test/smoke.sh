@@ -53,6 +53,15 @@ else
 fi
 apt-cache policy kurs-inf | sed -n '1,4p'
 
+# The slim base image drops /usr/share/doc/* except copyright; the clawbook
+# image (0.9 and later) re-includes the READMEs of the packages. Older images
+# lack that rule: add it here, so the test sees what the packages ship.
+if [ ! -e /etc/dpkg/dpkg.cfg.d/zz-clawbook-doc ]; then
+  printf '%s\n' 'path-include /usr/share/doc/clawbook-*/README.md' \
+    'path-include /usr/share/doc/kurs-*/README.md' > /etc/dpkg/dpkg.cfg.d/zz-clawbook-doc
+  echo "note: added dpkg rule zz-clawbook-doc (image older than 0.9)"
+fi
+
 echo "== install: $PACKAGES"
 start=$(date +%s)
 # shellcheck disable=SC2086
@@ -63,6 +72,13 @@ else
 fi
 grep -iE 'warn|error' /tmp/install.log | grep -v 'debconf' | head -n 10
 dpkg-query -W -f='${Package}\t${Version}\t${X-Clawbook-Art}\t${Installed-Size}\n' 'clawbook-*' 'kurs-*' hurl
+
+echo "== user documentation"
+missing=""
+for p in $(dpkg-query -W -f='${Package}\n' 'clawbook-*' 'kurs-*'); do
+  [ -s "/usr/share/doc/$p/README.md" ] || missing="$missing $p"
+done
+if [ -z "$missing" ]; then ok "README.md in /usr/share/doc of every package"; else bad "README.md missing:$missing"; fi
 
 echo "== clawbook-python"
 check "ruff"            ruff --version

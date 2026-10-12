@@ -20,6 +20,14 @@ zusätzlich braucht, kommt als Debian-Paket aus diesem Repository:
 Im Container installiert man Pakete am einfachsten mit dem Menü von
 `clawbook`. Mit apt geht es direkt so: `sudo apt install kurs-inf`.
 
+Jedes Paket hat eine Nutzer-Doku unter `packages/<paket>/README.md`
+(verlinkt in den Tabellen unten). Sie liegt im Paket auch unter
+`/usr/share/doc/<paket>/README.md`; im Container zeigt sie
+`clawbook pakete info <paket>`. (Debian-Slim-Images lassen
+`/usr/share/doc` beim Installieren weg; das clawbook-Image nimmt die
+READMEs dieser Pakete mit einer dpkg-Regel wieder auf. Fehlt die Datei,
+zeigt `clawbook` die Adresse im Netz.)
+
 Das Repository liegt auf GitHub Pages:
 <https://schlingensiepen.github.io/clawbook-apt/>
 
@@ -57,25 +65,25 @@ Text (`clawbook-apt.asc`) und einmal binär (`clawbook-apt.gpg`).
 
 | Paket | Inhalt | Herkunft der Bestandteile | VS-Code-Erweiterungen im Container |
 |---|---|---|---|
-| `clawbook-python` | pytest, ruff | Debian; ruff vom Herausgeber (Astral) | ms-python.python, ms-python.debugpy, ms-python.vscode-pylance, charliermarsh.ruff |
-| `clawbook-java` | OpenJDK 25, Maven, Gradle 9 | Debian; Gradle von gradle.org nach `/opt/gradle` | vscjava.vscode-java-pack |
-| `clawbook-spring` | Spring-Boot-CLI (`spring`), hängt von `clawbook-java` ab | Maven Central nach `/opt/spring` | vmware.vscode-boot-dev-pack |
-| `clawbook-dotnet` | .NET SDK 10.0 (LTS), `dotnet-ef` | Microsoft-Tarball, umgepackt nach `/usr/lib/dotnet`; dotnet-ef von nuget.org | ms-dotnettools.csharp, ms-dotnettools.csdevkit |
-| `clawbook-db-postgres` | PostgreSQL 17 als Dienst für `student` | Debian | ms-ossdata.vscode-pgsql |
-| `clawbook-db-sqlite` | sqlite3 | Debian | zknpr.sqlite-explorer |
-| `clawbook-webapi` | httpie, xh, hurl, curl | Debian; hurl vom Herausgeber (Orange) | humao.rest-client, anweber.vscode-httpyac |
-| `clawbook-modeling` | PlantUML (`plantuml`), Graphviz, Java-25-Laufzeit | Debian; PlantUML-Jar (MIT-Fassung) nach `/opt/plantuml` | jebbs.plantuml |
-| `clawbook-embedded` | PlatformIO Core (`pio`), esptool, pyserial | Debian; PlatformIO von PyPI in einer festen Python-Umgebung unter `/opt/platformio` | platformio.platformio-ide |
-| `clawbook-iot` | mosquitto-clients, paho-mqtt | Debian | – |
-| `clawbook-nodered` | Node-RED als Dienst für `student` | npm (Lockfile) nach `/usr/lib/clawbook/node-red` | – |
-| `clawbook-security` | nmap, tshark, gnupg; Mitschneiden ohne sudo | Debian | – |
+| [`clawbook-python`](packages/clawbook-python/README.md) | pytest, ruff | Debian; ruff vom Herausgeber (Astral) | ms-python.python, ms-python.debugpy, ms-python.vscode-pylance, charliermarsh.ruff |
+| [`clawbook-java`](packages/clawbook-java/README.md) | OpenJDK 25, Maven, Gradle 9 | Debian; Gradle von gradle.org nach `/opt/gradle` | vscjava.vscode-java-pack |
+| [`clawbook-spring`](packages/clawbook-spring/README.md) | Spring-Boot-CLI (`spring`), hängt von `clawbook-java` ab | Maven Central nach `/opt/spring` | vmware.vscode-boot-dev-pack |
+| [`clawbook-dotnet`](packages/clawbook-dotnet/README.md) | .NET SDK 10.0 (LTS), `dotnet-ef` | Microsoft-Tarball, umgepackt nach `/usr/lib/dotnet`; dotnet-ef von nuget.org | ms-dotnettools.csharp, ms-dotnettools.csdevkit |
+| [`clawbook-db-postgres`](packages/clawbook-db-postgres/README.md) | PostgreSQL 17 als Dienst für `student` | Debian | ms-ossdata.vscode-pgsql |
+| [`clawbook-db-sqlite`](packages/clawbook-db-sqlite/README.md) | sqlite3 | Debian | zknpr.sqlite-explorer |
+| [`clawbook-webapi`](packages/clawbook-webapi/README.md) | httpie, xh, hurl, curl | Debian; hurl vom Herausgeber (Orange) | humao.rest-client, anweber.vscode-httpyac |
+| [`clawbook-modeling`](packages/clawbook-modeling/README.md) | PlantUML (`plantuml`), Graphviz, Java-25-Laufzeit | Debian; PlantUML-Jar (MIT-Fassung) nach `/opt/plantuml` | jebbs.plantuml |
+| [`clawbook-embedded`](packages/clawbook-embedded/README.md) | PlatformIO Core (`pio`), esptool, pyserial | Debian; PlatformIO von PyPI in einer festen Python-Umgebung unter `/opt/platformio` | platformio.platformio-ide |
+| [`clawbook-iot`](packages/clawbook-iot/README.md) | mosquitto-clients, paho-mqtt | Debian | – |
+| [`clawbook-nodered`](packages/clawbook-nodered/README.md) | Node-RED als Dienst für `student` | npm (Lockfile) nach `/usr/lib/clawbook/node-red` | – |
+| [`clawbook-security`](packages/clawbook-security/README.md) | nmap, tshark, gnupg; Mitschneiden ohne sudo | Debian | – |
 | `hurl` | unverändertes Paket des Herausgebers | GitHub-Release von Orange | – |
 
 | Kurs | Titel | Technikpakete |
 |---|---|---|
-| `kurs-inf` | Ingenieurinformatik | clawbook-spring (mit clawbook-java), clawbook-webapi, clawbook-db-sqlite |
-| `kurs-swe` | Softwareengineering | clawbook-spring, clawbook-dotnet, clawbook-db-postgres, clawbook-db-sqlite, clawbook-webapi, clawbook-modeling |
-| `kurs-iot` | IoT | clawbook-embedded, clawbook-iot, clawbook-nodered, clawbook-security, clawbook-webapi |
+| [`kurs-inf`](packages/kurs-inf/README.md) | Ingenieurinformatik | clawbook-spring (mit clawbook-java), clawbook-webapi, clawbook-db-sqlite |
+| [`kurs-swe`](packages/kurs-swe/README.md) | Softwareengineering | clawbook-spring, clawbook-dotnet, clawbook-db-postgres, clawbook-db-sqlite, clawbook-webapi, clawbook-modeling |
+| [`kurs-iot`](packages/kurs-iot/README.md) | IoT | clawbook-embedded, clawbook-iot, clawbook-nodered, clawbook-security, clawbook-webapi |
 
 Die Versionen der Fremdbestandteile stehen in `packages/<paket>/versions.env`
 und in den Lockfiles (`requirements.txt`, `package-lock.json`).
@@ -125,6 +133,7 @@ lib/                        Hilfsfunktionen (Download mit Prüfsumme, index.html
 keys/                       öffentlicher Signaturschlüssel
 packages/<paket>/
   control                   Paketfelder, u. a. X-Clawbook-Art: technik | kurs
+  README.md                 Nutzer-Doku (landet unter /usr/share/doc/<paket>/)
   copyright                 Lizenzen (landet unter /usr/share/doc/<paket>/)
   vscode-extensions.list    VS-Code-Erweiterungen im Container (Technikpakete)
   vscode.json               Kursbeschreibung, Format 1 (nur Kurse)
@@ -188,7 +197,8 @@ eigene Paketquelle.
 2. `control` nach dem Muster von `packages/kurs-inf/control`:
    `Package` = Kennung, `Architecture: all`, `X-Clawbook-Art: kurs`,
    `Depends:` nur auf `clawbook-…`-Pakete. Kurzbeschreibung `Kurs <Titel>`.
-3. `copyright` wie bei den anderen Kursen.
+3. `copyright` wie bei den anderen Kursen, `README.md` (Nutzer-Doku)
+   nach dem Muster von `packages/kurs-inf/README.md`.
 4. `vscode.json` (Format 1) mit diesen Feldern:
    - `kennung` = Paketname
    - `titel`
@@ -201,7 +211,8 @@ eigene Paketquelle.
    - `einstellungen`
 5. `./build.sh --check` ausführen.
 
-Ein Kurs-Paket enthält keine eigenen Dateien außer der Kursbeschreibung,
+Ein Kurs-Paket enthält keine eigenen Dateien außer der Kursbeschreibung
+und der Doku,
 keine Maintainer-Skripte, keine fremden Quellen und keine fremden
 Schlüssel; `build.sh --check` prüft das. Fehlt ein Werkzeug, gehört es in
 ein (neues) Technikpaket.

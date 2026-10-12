@@ -1,5 +1,5 @@
 Package: clawbook-embedded
-Version: 0.8.0-2
+Version: 0.8.0-3
 Architecture: amd64
 Maintainer: clawbook-lehre <noreply@github.com>
 Depends: python3.13, python3-venv, esptool, python3-serial
