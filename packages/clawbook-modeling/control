@@ -1,5 +1,5 @@
 Package: clawbook-modeling
-Version: 0.8.0-2
+Version: 0.8.0-3
 Architecture: all
 Maintainer: clawbook-lehre <noreply@github.com>
 Depends: graphviz, openjdk-25-jre-headless

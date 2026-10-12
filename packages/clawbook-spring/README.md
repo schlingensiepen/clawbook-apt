@@ -18,19 +18,39 @@ VS-Code-Erweiterungen im Container: Spring Boot Extension Pack
 ## Installieren
 
 Das Paket kommt mit den Kursen `kurs-inf` und `kurs-swe`. Einzeln
-installieren Sie es im Container so:
+installieren Sie es auf einem dieser Wege:
 
-```bash
-clawbook pakete add clawbook-spring
-```
+- **Unter Windows** im Verwaltungs-Skript: PowerShell öffnen und den
+  Befehl von der Startseite von clawbook ausführen:
 
-Oder im clawbook-Menü **6 Pakete und Kurse**, dann `t`. Wie Kurse und
-Technikpakete funktionieren, steht in
+  ```powershell
+  irm https://raw.githubusercontent.com/schlingensiepen/clawbook-lehre/main/get-clawbook.ps1 | iex
+  ```
+
+  Dann Menüpunkt **[11] Kurse und Technikpakete**, `t` und die Nummer
+  von `clawbook-spring`.
+- **Im Container** (Terminal, siehe „Erste Schritte“):
+
+  ```bash
+  clawbook pakete add clawbook-spring
+  ```
+
+Ausführlich beschreibt das die Seite
 [Kurse und Technikpakete](https://github.com/schlingensiepen/clawbook-lehre/blob/main/docs/kurse-und-pakete.md).
-Diese Doku zeigt Ihnen im Container auch
-`clawbook pakete info clawbook-spring`.
+Diese Doku zeigt Ihnen im Container auch `clawbook pakete info clawbook-spring`.
 
 ## Erste Schritte
+
+**Wo Sie tippen:** Alle Befehle auf dieser Seite tippen Sie im
+Terminal des Containers, nicht in Windows. Am einfachsten in VS Code:
+VS Code über das Verwaltungs-Skript (**[9] VS Code starten**) oder den
+Startmenü-Eintrag „clawbook VS Code“ öffnen, dann im Menü **Terminal →
+Neues Terminal** (englisch *Terminal → New Terminal*). Weitere
+Terminals öffnet das Plus-Symbol im Terminalbereich. Alternativ in
+PowerShell `ssh clawbook`. Ihre Projekte legen Sie unter `~/source` an,
+dem Projektordner in Ihrem Home (`~` steht für `/home/student`).
+Begriffe wie Container, Home oder VSCodePack erklärt das
+[Glossar](https://github.com/schlingensiepen/clawbook-lehre/blob/main/docs/README.md#begriffe).
 
 Ein Web-Projekt anlegen (die CLI holt die Vorlage bei
 start.spring.io, Sie brauchen also Internet):

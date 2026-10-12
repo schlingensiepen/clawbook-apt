@@ -26,22 +26,47 @@ Erweiterungen aller Technikpakete; PlantUML rendert darin lokal.
 
 ## Installieren
 
-Am einfachsten im Verwaltungs-Skript unter Windows, Menüpunkt **[11]
-Kurse und Technikpakete**, dann die Nummer von `kurs-swe`. Im Container
-geht es im clawbook-Menü **6 Pakete und Kurse** oder direkt:
+**Unter Windows (empfohlen):**
 
-```bash
-clawbook pakete add kurs-swe
-```
+1. PowerShell öffnen und den Befehl von der Startseite von clawbook
+   ausführen (im selben Fenster genügt später Pfeiltaste nach oben und
+   Enter):
 
-Der Download umfasst etwa 1,7 GB. Alles Weitere — auch das VSCodePack —
-beschreibt
+   ```powershell
+   irm https://raw.githubusercontent.com/schlingensiepen/clawbook-lehre/main/get-clawbook.ps1 | iex
+   ```
+
+2. Menüpunkt **[11] Kurse und Technikpakete** wählen. Das Skript öffnet
+   jetzt das Menü **im Container**: Die Zeilen, die Sie sehen, kommen
+   von clawbook im Container, nicht mehr von Windows.
+3. Die Nummer von `kurs-swe` eingeben, Enter; die Rückfrage der
+   Paketverwaltung mit Enter bestätigen. Der Download umfasst etwa
+   1,7 GB.
+4. Mit Enter das Menü im Container verlassen. Sie sind zurück im
+   Verwaltungs-Skript unter Windows; es fragt, ob es das VSCodePack
+   „Softwareengineering“ einrichten soll — Enter bestätigt.
+
+**Im Container** geht es auch, im clawbook-Menü **6 Pakete und Kurse**
+oder direkt mit `clawbook pakete add kurs-swe`. Das VSCodePack richtet
+aber nur das Verwaltungs-Skript unter Windows ein (dort **[10] VSCodePacks
+einrichten**, dann **[1]**).
+
+Ausführlich beschreibt das die Seite
 [Kurse und Technikpakete](https://github.com/schlingensiepen/clawbook-lehre/blob/main/docs/kurse-und-pakete.md).
 Diese Doku zeigt Ihnen im Container auch `clawbook pakete info kurs-swe`.
 
 ## Erste Schritte
 
-Prüfen Sie im Container, ob alles da ist:
+**Wo Sie tippen:** Die Befehle unten tippen Sie im Terminal des
+Containers, nicht in Windows. Starten Sie VS Code über das VSCodePack
+„Softwareengineering“ — im Verwaltungs-Skript **[9] VS Code starten** oder über den
+Startmenü-Eintrag „clawbook VS Code – Softwareengineering“ — und öffnen Sie im Menü
+**Terminal → Neues Terminal** (englisch *Terminal → New Terminal*).
+Alternativ in PowerShell `ssh clawbook`. Ihre Projekte gehören nach
+`~/source`, den Projektordner in Ihrem Home. Begriffe wie Container,
+Home oder VSCodePack erklärt das [Glossar](https://github.com/schlingensiepen/clawbook-lehre/blob/main/docs/README.md#begriffe).
+
+Prüfen Sie, ob alles da ist:
 
 ```bash
 clawbook kurse          # kurs-swe  Softwareengineering  (…)
@@ -52,10 +77,7 @@ psql -c 'select 1'      # PostgreSQL antwortet
 plantuml -version
 ```
 
-Starten Sie danach VS Code über das VSCodePack „Softwareengineering"
-(Verwaltungs-Skript **[9] VS Code starten** oder Startmenü „clawbook
-VS Code – Softwareengineering"). Gute erste Beispiele: ein
-Spring-Boot-Projekt
+Gute erste Beispiele: ein Spring-Boot-Projekt
 ([clawbook-spring](https://github.com/schlingensiepen/clawbook-apt/blob/main/packages/clawbook-spring/README.md))
 und Entity Framework mit SQLite
 ([clawbook-dotnet](https://github.com/schlingensiepen/clawbook-apt/blob/main/packages/clawbook-dotnet/README.md)).

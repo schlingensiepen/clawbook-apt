@@ -22,22 +22,47 @@ Erweiterungen aller Technikpakete.
 
 ## Installieren
 
-Am einfachsten im Verwaltungs-Skript unter Windows, Menüpunkt **[11]
-Kurse und Technikpakete**, dann die Nummer von `kurs-inf`. Im Container
-geht es im clawbook-Menü **6 Pakete und Kurse** oder direkt:
+**Unter Windows (empfohlen):**
 
-```bash
-clawbook pakete add kurs-inf
-```
+1. PowerShell öffnen und den Befehl von der Startseite von clawbook
+   ausführen (im selben Fenster genügt später Pfeiltaste nach oben und
+   Enter):
 
-Der Download umfasst etwa 0,8 GB. Alles Weitere — auch das VSCodePack —
-beschreibt
+   ```powershell
+   irm https://raw.githubusercontent.com/schlingensiepen/clawbook-lehre/main/get-clawbook.ps1 | iex
+   ```
+
+2. Menüpunkt **[11] Kurse und Technikpakete** wählen. Das Skript öffnet
+   jetzt das Menü **im Container**: Die Zeilen, die Sie sehen, kommen
+   von clawbook im Container, nicht mehr von Windows.
+3. Die Nummer von `kurs-inf` eingeben, Enter; die Rückfrage der
+   Paketverwaltung mit Enter bestätigen. Der Download umfasst etwa
+   0,8 GB.
+4. Mit Enter das Menü im Container verlassen. Sie sind zurück im
+   Verwaltungs-Skript unter Windows; es fragt, ob es das VSCodePack
+   „Ingenieurinformatik“ einrichten soll — Enter bestätigt.
+
+**Im Container** geht es auch, im clawbook-Menü **6 Pakete und Kurse**
+oder direkt mit `clawbook pakete add kurs-inf`. Das VSCodePack richtet
+aber nur das Verwaltungs-Skript unter Windows ein (dort **[10] VSCodePacks
+einrichten**, dann **[1]**).
+
+Ausführlich beschreibt das die Seite
 [Kurse und Technikpakete](https://github.com/schlingensiepen/clawbook-lehre/blob/main/docs/kurse-und-pakete.md).
 Diese Doku zeigt Ihnen im Container auch `clawbook pakete info kurs-inf`.
 
 ## Erste Schritte
 
-Prüfen Sie im Container, ob alles da ist:
+**Wo Sie tippen:** Die Befehle unten tippen Sie im Terminal des
+Containers, nicht in Windows. Starten Sie VS Code über das VSCodePack
+„Ingenieurinformatik“ — im Verwaltungs-Skript **[9] VS Code starten** oder über den
+Startmenü-Eintrag „clawbook VS Code – Ingenieurinformatik“ — und öffnen Sie im Menü
+**Terminal → Neues Terminal** (englisch *Terminal → New Terminal*).
+Alternativ in PowerShell `ssh clawbook`. Ihre Projekte gehören nach
+`~/source`, den Projektordner in Ihrem Home. Begriffe wie Container,
+Home oder VSCodePack erklärt das [Glossar](https://github.com/schlingensiepen/clawbook-lehre/blob/main/docs/README.md#begriffe).
+
+Prüfen Sie, ob alles da ist:
 
 ```bash
 clawbook kurse          # kurs-inf  Ingenieurinformatik  (…)
@@ -47,10 +72,7 @@ sqlite3 --version
 http --version
 ```
 
-Starten Sie danach VS Code über das VSCodePack „Ingenieurinformatik"
-(Verwaltungs-Skript **[9] VS Code starten** oder Startmenü „clawbook
-VS Code – Ingenieurinformatik"). Ein erstes Spring-Boot-Projekt zeigt
-die Doku von
+Ein erstes Spring-Boot-Projekt zeigt die Doku von
 [clawbook-spring](https://github.com/schlingensiepen/clawbook-apt/blob/main/packages/clawbook-spring/README.md).
 
 ## Wer macht was

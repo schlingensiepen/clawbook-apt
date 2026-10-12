@@ -17,7 +17,7 @@ zusätzlich braucht, kommt als Debian-Paket aus diesem Repository:
   Mehrere Kurse lassen sich nebeneinander installieren; apt vereinigt ihre
   Abhängigkeiten.
 
-Im Container installiert man Pakete am einfachsten mit dem Menü von
+Im Container installieren Sie Pakete am einfachsten mit dem Menü von
 `clawbook`. Mit apt geht es direkt so: `sudo apt install kurs-inf`.
 
 Jedes Paket hat eine Nutzer-Doku unter `packages/<paket>/README.md`
@@ -50,7 +50,7 @@ EOF
 sudo apt update
 ```
 
-Prüfe nach dem Herunterladen den Fingerabdruck des Schlüssels mit
+Prüfen Sie nach dem Herunterladen den Fingerabdruck des Schlüssels mit
 `gpg --show-keys /usr/share/keyrings/clawbook-apt.gpg`. Er muss so lauten:
 
 ```
@@ -103,7 +103,7 @@ und in den Lockfiles (`requirements.txt`, `package-lock.json`).
   `/var/lib/postgresql` entfernt das Paket. Bei einer neuen Hauptversion
   (künftiges Debian) braucht es `pg_upgrade`.
 - **Node-RED:** Der Editor hat keine Anmeldung und hört deshalb nur auf
-  `127.0.0.1:1880`. In VS Code erreicht man ihn über „Ports“ →
+  `127.0.0.1:1880`. In VS Code erreichen Sie ihn über „Ports“ →
   Weiterleitung. Die Flows liegen in `~/.node-red`. Node.js (ab 22.9) kommt
   aus dem clawbook-Image und ist darum keine Paketabhängigkeit.
 - **.NET:** `DOTNET_CLI_TELEMETRY_OPTOUT=1` und `DOTNET_NOLOGO=1` stehen in
@@ -151,8 +151,10 @@ test/                       lokaler Test mit Docker (Bau und Installation)
 - `vscode.json` → `/usr/share/clawbook/kurse/<kennung>/vscode.json`
 
 Die Pakete baut `dpkg-deb`, den Index `apt-ftparchive`, signiert wird mit
-`gpg` (`InRelease` und `Release.gpg`). Suite `stable`, Codename `trixie`,
-Komponente `main`, Architektur `amd64`.
+`gpg` (`InRelease` und `Release.gpg`). Komponente `main`, Architektur
+`amd64`. Der Index liegt unter `dists/trixie/`; die Datei `Release`
+nennt Codename `trixie` und Suite `stable`. Eingebunden wird er über den
+Codename (`Suites: trixie`, wie oben).
 
 ## Bauen und testen
 

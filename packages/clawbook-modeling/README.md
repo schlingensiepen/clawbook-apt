@@ -16,20 +16,40 @@ VS-Code-Erweiterungen im Container: PlantUML (`jebbs.plantuml`).
 
 ## Installieren
 
-Das Paket kommt mit dem Kurs `kurs-swe`. Einzeln installieren Sie es im
-Container so:
+Das Paket kommt mit dem Kurs `kurs-swe`. Einzeln installieren Sie es
+auf einem dieser Wege:
 
-```bash
-clawbook pakete add clawbook-modeling
-```
+- **Unter Windows** im Verwaltungs-Skript: PowerShell öffnen und den
+  Befehl von der Startseite von clawbook ausführen:
 
-Oder im clawbook-Menü **6 Pakete und Kurse**, dann `t`. Wie Kurse und
-Technikpakete funktionieren, steht in
+  ```powershell
+  irm https://raw.githubusercontent.com/schlingensiepen/clawbook-lehre/main/get-clawbook.ps1 | iex
+  ```
+
+  Dann Menüpunkt **[11] Kurse und Technikpakete**, `t` und die Nummer
+  von `clawbook-modeling`.
+- **Im Container** (Terminal, siehe „Erste Schritte“):
+
+  ```bash
+  clawbook pakete add clawbook-modeling
+  ```
+
+Ausführlich beschreibt das die Seite
 [Kurse und Technikpakete](https://github.com/schlingensiepen/clawbook-lehre/blob/main/docs/kurse-und-pakete.md).
-Diese Doku zeigt Ihnen im Container auch
-`clawbook pakete info clawbook-modeling`.
+Diese Doku zeigt Ihnen im Container auch `clawbook pakete info clawbook-modeling`.
 
 ## Erste Schritte
+
+**Wo Sie tippen:** Alle Befehle auf dieser Seite tippen Sie im
+Terminal des Containers, nicht in Windows. Am einfachsten in VS Code:
+VS Code über das Verwaltungs-Skript (**[9] VS Code starten**) oder den
+Startmenü-Eintrag „clawbook VS Code“ öffnen, dann im Menü **Terminal →
+Neues Terminal** (englisch *Terminal → New Terminal*). Weitere
+Terminals öffnet das Plus-Symbol im Terminalbereich. Alternativ in
+PowerShell `ssh clawbook`. Ihre Projekte legen Sie unter `~/source` an,
+dem Projektordner in Ihrem Home (`~` steht für `/home/student`).
+Begriffe wie Container, Home oder VSCodePack erklärt das
+[Glossar](https://github.com/schlingensiepen/clawbook-lehre/blob/main/docs/README.md#begriffe).
 
 Ein Sequenzdiagramm als Text, in `~/source/hallo-uml/bestellung.puml`:
 
@@ -71,6 +91,11 @@ Im Kurs `kurs-swe` stellt das VSCodePack die Erweiterung so ein, dass
 sie lokal mit dem mitgelieferten PlantUML rendert
 (`plantuml.render: Local`); Ihre Diagramme verlassen den Container
 nicht.
+
+**Das tun Sie selbst:** Diagramme als `.puml`-Dateien schreiben und
+rendern. Das Bild legt `plantuml` neben die `.puml`-Datei (im Beispiel
+`~/source/hallo-uml/bestellung.png`); in VS Code öffnen Sie es per
+Klick im Explorer.
 
 **Falls die Automatik nicht geht:** Ohne Kurs (Paket einzeln
 installiert) tragen Sie in den VS-Code-Einstellungen

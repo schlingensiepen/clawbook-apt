@@ -1,5 +1,5 @@
 Package: kurs-swe
-Version: 0.8.0-2
+Version: 0.8.0-3
 Architecture: all
 Maintainer: clawbook-lehre <noreply@github.com>
 Depends: clawbook-spring, clawbook-dotnet, clawbook-db-postgres, clawbook-db-sqlite, clawbook-webapi, clawbook-modeling

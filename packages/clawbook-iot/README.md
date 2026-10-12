@@ -11,28 +11,48 @@ eine Python-Bibliothek für eigene Programme.
 | Mosquitto-Clients | 2.0.21 | `mosquitto_pub`, `mosquitto_sub` | Debian |
 | paho-mqtt | 2.1.0 | (Python-Bibliothek) | Debian |
 
-Einen eigenen MQTT-Broker (Server) bringt das Paket nicht mit. Zum Üben
-genügt ein öffentlicher Test-Broker wie `test.mosquitto.org`, in der
-Lehrveranstaltung meist der Broker, den sie Ihnen nennt.
+Einen eigenen MQTT-Broker (Server) bringt das Paket nicht mit. Sie
+verbinden sich mit dem Broker, den Sie verwenden, zum Ausprobieren zum
+Beispiel mit dem öffentlichen Test-Broker `test.mosquitto.org`.
 
 VS-Code-Erweiterungen: keine.
 
 ## Installieren
 
-Das Paket kommt mit dem Kurs `kurs-iot`. Einzeln installieren Sie es im
-Container so:
+Das Paket kommt mit dem Kurs `kurs-iot`. Einzeln installieren Sie es
+auf einem dieser Wege:
 
-```bash
-clawbook pakete add clawbook-iot
-```
+- **Unter Windows** im Verwaltungs-Skript: PowerShell öffnen und den
+  Befehl von der Startseite von clawbook ausführen:
 
-Oder im clawbook-Menü **6 Pakete und Kurse**, dann `t`. Wie Kurse und
-Technikpakete funktionieren, steht in
+  ```powershell
+  irm https://raw.githubusercontent.com/schlingensiepen/clawbook-lehre/main/get-clawbook.ps1 | iex
+  ```
+
+  Dann Menüpunkt **[11] Kurse und Technikpakete**, `t` und die Nummer
+  von `clawbook-iot`.
+- **Im Container** (Terminal, siehe „Erste Schritte“):
+
+  ```bash
+  clawbook pakete add clawbook-iot
+  ```
+
+Ausführlich beschreibt das die Seite
 [Kurse und Technikpakete](https://github.com/schlingensiepen/clawbook-lehre/blob/main/docs/kurse-und-pakete.md).
-Diese Doku zeigt Ihnen im Container auch
-`clawbook pakete info clawbook-iot`.
+Diese Doku zeigt Ihnen im Container auch `clawbook pakete info clawbook-iot`.
 
 ## Erste Schritte
+
+**Wo Sie tippen:** Alle Befehle auf dieser Seite tippen Sie im
+Terminal des Containers, nicht in Windows. Am einfachsten in VS Code:
+VS Code über das Verwaltungs-Skript (**[9] VS Code starten**) oder den
+Startmenü-Eintrag „clawbook VS Code“ öffnen, dann im Menü **Terminal →
+Neues Terminal** (englisch *Terminal → New Terminal*). Weitere
+Terminals öffnet das Plus-Symbol im Terminalbereich. Alternativ in
+PowerShell `ssh clawbook`. Ihre Projekte legen Sie unter `~/source` an,
+dem Projektordner in Ihrem Home (`~` steht für `/home/student`).
+Begriffe wie Container, Home oder VSCodePack erklärt das
+[Glossar](https://github.com/schlingensiepen/clawbook-lehre/blob/main/docs/README.md#begriffe).
 
 Öffnen Sie zwei Terminals. Wählen Sie ein Thema (Topic), das sonst
 niemand benutzt, etwa mit Ihrem Namen.
@@ -83,12 +103,15 @@ Persönliches.
 Benutzername und Passwort, geben Sie sie mit `-u <name> -P <passwort>`
 an (in Python: `auth={"username": …, "password": …}`).
 
+**Falls die Automatik nicht geht:** Fehlt ein Befehl oder die
+Python-Bibliothek, installieren Sie das Paket erneut:
+`sudo apt-get install --reinstall mosquitto-clients python3-paho-mqtt`.
+
 ## Wenn etwas nicht geht
 
 - **„Error: Connection refused"** oder keine Antwort — Broker-Adresse
   oder Port (Standard 1883) stimmt nicht, oder das Netz blockiert den
-  Port. Mit einem anderen Netz oder dem Broker der Lehrveranstaltung
-  versuchen.
+  Port. Adresse prüfen oder es aus einem anderen Netz versuchen.
 - **`mosquitto_sub` zeigt nichts** — Sender und Empfänger müssen exakt
   dasselbe Topic verwenden (Groß-/Kleinschreibung zählt). Zum Testen
   `-t 'clawbook/erika/#'` abonnieren: `#` steht für alles darunter.
