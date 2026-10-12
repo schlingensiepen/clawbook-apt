@@ -1,5 +1,5 @@
 Package: clawbook-embedded
-Version: 0.8.0-1
+Version: 0.8.0-2
 Architecture: amd64
 Maintainer: clawbook-lehre <noreply@github.com>
 Depends: python3.13, python3-venv, esptool, python3-serial
@@ -12,4 +12,5 @@ Description: Embedded: PlatformIO Core, esptool und pyserial
  Python-Umgebung unter /opt/platformio (Befehle pio und platformio),
  esptool und pyserial aus Debian, dazu die VS-Code-Erweiterung PlatformIO
  IDE. Plattformen und Toolchains lädt PlatformIO selbst nach ~/.platformio
- (für ESP32 rund 1,5 GB beim ersten Build oder Vorladen durch clawbook).
+ (für ESP32 mit pioarduino etwa 6 GB beim ersten Build oder beim
+ Vorladen auf Nachfrage durch clawbook).
