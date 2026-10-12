@@ -108,7 +108,7 @@ und in den Lockfiles (`requirements.txt`, `package-lock.json`).
   erlaubt diese Fähigkeit standardmäßig nicht, deshalb würde `dumpcap` dann
   gar nicht starten. Ein dpkg-Trigger setzt die Rechte nach jedem Update von
   `wireshark-common` neu. Die neue Gruppe gilt ab der nächsten Anmeldung.
-- **PlatformIO:** Plattformen und Toolchains (für ESP32 rund 1,5 GB) lädt
+- **PlatformIO:** Plattformen und Toolchains (für ESP32 mit pioarduino etwa 6 GB, nur auf Nachfrage vorgeladen) lädt
   PlatformIO selbst nach `~/.platformio`, beim ersten Build oder durch
   `clawbook`. Ein gemeinsames, schreibgeschütztes Verzeichnis unterstützt
   PlatformIO nicht. Die Kursbeschreibung von `kurs-iot` stellt die
