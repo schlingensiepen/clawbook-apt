@@ -1,0 +1,24 @@
+#!/bin/sh
+# - starts the s6 service at once when s6 is running (s6-overlay reads
+#   /etc/services.d only at container start)
+set -e
+SVC=node-red
+case "$1" in
+  configure)
+    if ! command -v node >/dev/null 2>&1 && [ ! -x /usr/local/bin/node ]; then
+      echo "clawbook-nodered: Node.js (>= 22.9) not found; the service needs the clawbook image" >&2
+    fi
+    if [ -d /run/service ] && [ -x /command/s6-svscanctl ]; then
+      if [ -e "/run/service/$SVC" ]; then
+        if ! cmp -s "/etc/services.d/$SVC/run" "/run/service/$SVC/run"; then
+          cp "/etc/services.d/$SVC/run" "/run/service/$SVC/run"
+          /command/s6-svc -r "/run/service/$SVC" || true
+        fi
+      else
+        cp -a "/etc/services.d/$SVC" "/run/service/$SVC"
+      fi
+      /command/s6-svscanctl -a /run/service || true
+    fi
+    ;;
+esac
+exit 0

@@ -1,0 +1,8 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: kurs-iot
+Source: https://github.com/schlingensiepen/clawbook-apt
+
+Files: *
+Copyright: clawbook-lehre
+License: Apache-2.0
+ Full text: /usr/share/common-licenses/Apache-2.0

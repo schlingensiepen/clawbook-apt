@@ -1,0 +1,17 @@
+#!/bin/sh
+# Gives dumpcap back its Debian default (root:root 0755, no capabilities).
+# The group wireshark stays (wireshark-common uses it, too).
+set -e
+case "$1" in
+  remove|purge)
+    if dpkg-statoverride --list /usr/bin/dumpcap >/dev/null 2>&1; then
+      dpkg-statoverride --quiet --remove /usr/bin/dumpcap || true
+    fi
+    if [ -e /usr/bin/dumpcap ]; then
+      chown root:root /usr/bin/dumpcap
+      chmod 0755 /usr/bin/dumpcap
+      setcap -r /usr/bin/dumpcap 2>/dev/null || true
+    fi
+    ;;
+esac
+exit 0

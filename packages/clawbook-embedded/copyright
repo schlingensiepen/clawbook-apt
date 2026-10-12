@@ -1,0 +1,17 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: clawbook-embedded
+Source: https://github.com/schlingensiepen/clawbook-apt
+
+Files: *
+Copyright: clawbook-lehre
+License: Apache-2.0
+ Packaging. Full text: /usr/share/common-licenses/Apache-2.0
+
+Files: opt/platformio/*
+Copyright: PlatformIO Labs and the authors of the bundled Python packages
+License: Apache-2.0 and others
+ PlatformIO Core (Apache-2.0) with its dependencies from PyPI, installed
+ unchanged into a virtual environment. The list of packages is in
+ /usr/share/doc/clawbook-embedded/platformio/installed-packages.txt; the
+ license of each package is in its *.dist-info directory below
+ /opt/platformio/lib/python3.13/site-packages/.

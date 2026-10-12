@@ -1,0 +1,13 @@
+#!/bin/sh
+# Removes the block of clawbook-dotnet from /etc/environment.
+set -e
+BEGIN='# >>> clawbook-dotnet >>>'
+END='# <<< clawbook-dotnet <<<'
+case "$1" in
+  remove|purge)
+    if [ -f /etc/environment ] && grep -qxF "$BEGIN" /etc/environment; then
+      sed -i "\|^$BEGIN\$|,\|^$END\$|d" /etc/environment
+    fi
+    ;;
+esac
+exit 0

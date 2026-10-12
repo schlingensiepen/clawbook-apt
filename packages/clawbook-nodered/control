@@ -1,0 +1,14 @@
+Package: clawbook-nodered
+Version: 0.8.0-1
+Architecture: amd64
+Maintainer: clawbook-lehre <noreply@github.com>
+Section: web
+Priority: optional
+Homepage: https://github.com/schlingensiepen/clawbook-apt
+X-Clawbook-Art: technik
+Description: Node-RED als Dienst für student
+ Technikpaket für clawbook-lehre. Node-RED (npm, mit Lockfile gebaut)
+ unter /usr/lib/clawbook/node-red, betrieben als s6-Dienst unter dem
+ Benutzer student. Der Editor hört nur auf 127.0.0.1:1880 (in VS Code
+ über die Portweiterleitung erreichbar), die Flows liegen in
+ ~/.node-red. Braucht Node.js 22 aus dem clawbook-Image.

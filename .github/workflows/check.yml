@@ -1,0 +1,32 @@
+# Pull requests (e.g. a new course package): check the package definitions
+# and build everything unsigned, so wrong checksums or dependencies show up
+# before the merge. Nothing is published, no secrets are used.
+name: check
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: debian:trixie
+    steps:
+      - name: Install build tools
+        run: |
+          apt-get update -qq
+          apt-get install -y -qq --no-install-recommends \
+            ca-certificates curl git unzip xz-utils zstd dpkg-dev apt-utils \
+            gnupg gpgv python3 python3-venv libstdc++6 >/dev/null
+
+      - uses: actions/checkout@v7
+
+      - name: Check package definitions
+        run: ./build.sh --check
+
+      - name: Build (unsigned)
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          ./build.sh --no-sign

@@ -1,0 +1,15 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: clawbook-python
+Source: https://github.com/schlingensiepen/clawbook-apt
+
+Files: *
+Copyright: clawbook-lehre
+License: Apache-2.0
+ Packaging. Full text: /usr/share/common-licenses/Apache-2.0
+
+Files: usr/bin/ruff
+Copyright: 2022 Charles Marsh and the ruff contributors (Astral Software Inc.)
+License: MIT
+ ruff, unchanged binary from https://github.com/astral-sh/ruff/releases.
+ Full license text including the notices of the libraries ruff is derived
+ from: /usr/share/doc/clawbook-python/ruff/LICENSE

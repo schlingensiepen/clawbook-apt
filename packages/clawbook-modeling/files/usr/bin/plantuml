@@ -1,0 +1,5 @@
+#!/bin/sh
+# PlantUML (clawbook-modeling): jar in /opt/plantuml, Java 25, no display.
+JAVA=/usr/lib/jvm/java-25-openjdk-amd64/bin/java
+[ -x "$JAVA" ] || JAVA=java
+exec "$JAVA" -Djava.awt.headless=true ${PLANTUML_JAVA_OPTS:-} -jar /opt/plantuml/plantuml.jar "$@"

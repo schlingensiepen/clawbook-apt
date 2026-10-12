@@ -1,0 +1,34 @@
+{
+  "format": 1,
+  "kennung": "kurs-iot",
+  "titel": "IoT",
+  "ordner": "/home/student/source",
+  "links": [
+    {
+      "titel": "Kurs-Repository kurs-iot",
+      "url": "https://github.com/schlingensiepen/kurs-iot"
+    },
+    {
+      "titel": "Lehre (alle Kurse)",
+      "url": "https://github.com/schlingensiepen/lehre"
+    }
+  ],
+  "windows": {
+    "erweiterungen": [
+      "ms-vscode-remote.remote-ssh"
+    ]
+  },
+  "container": {
+    "erweiterungen": []
+  },
+  "einstellungen": {
+    "update.mode": "none",
+    "telemetry.telemetryLevel": "off",
+    "redhat.telemetry.enabled": false,
+    "remote.SSH.remotePlatform": {
+      "clawbook": "linux"
+    },
+    "platformio-ide.useBuiltinPIOCore": false,
+    "platformio-ide.useBuiltinPython": false
+  }
+}

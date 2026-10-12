@@ -1,0 +1,14 @@
+Package: clawbook-dotnet
+Version: 0.8.0-1
+Architecture: amd64
+Maintainer: clawbook-lehre <noreply@github.com>
+Depends: ca-certificates, libc6, libgcc-s1, libgssapi-krb5-2, libicu76, libssl3t64, libstdc++6, tzdata, zlib1g
+Section: devel
+Priority: optional
+Homepage: https://github.com/schlingensiepen/clawbook-apt
+X-Clawbook-Art: technik
+Description: .NET SDK 10.0 mit dotnet-ef
+ Technikpaket für clawbook-lehre. Das offizielle .NET SDK 10.0 (LTS) von
+ Microsoft, unverändert umgepackt nach /usr/lib/dotnet, dazu das
+ Entity-Framework-Werkzeug dotnet-ef systemweit. Telemetrie der .NET-CLI
+ ist abgeschaltet. VS-Code-Erweiterungen: C# und C# Dev Kit.

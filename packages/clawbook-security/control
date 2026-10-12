@@ -1,0 +1,14 @@
+Package: clawbook-security
+Version: 0.8.0-1
+Architecture: all
+Maintainer: clawbook-lehre <noreply@github.com>
+Depends: nmap, tshark, libcap2-bin, gnupg, passwd
+Section: net
+Priority: optional
+Homepage: https://github.com/schlingensiepen/clawbook-apt
+X-Clawbook-Art: technik
+Description: Sicherheit: nmap, tshark und gnupg
+ Technikpaket für clawbook-lehre. nmap, tshark und gnupg aus Debian.
+ Damit student ohne sudo mitschneiden kann, bekommt dumpcap nur die
+ Fähigkeit cap_net_raw (Gruppe wireshark, student ist Mitglied); ein
+ dpkg-Trigger setzt das nach jedem Update von wireshark-common neu.

@@ -1,0 +1,13 @@
+Package: clawbook-webapi
+Version: 0.8.0-1
+Architecture: all
+Maintainer: clawbook-lehre <noreply@github.com>
+Depends: curl, httpie, xh, hurl (>= 8.0.1)
+Section: web
+Priority: optional
+Homepage: https://github.com/schlingensiepen/clawbook-apt
+X-Clawbook-Art: technik
+Description: Web-APIs testen: httpie, xh, hurl und REST-Clients
+ Technikpaket für clawbook-lehre. HTTP-Werkzeuge httpie und xh aus Debian,
+ hurl vom Herausgeber (Orange, im selben Repository mitgeliefert), dazu
+ die VS-Code-Erweiterungen REST Client und httpYac.

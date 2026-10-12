@@ -1,0 +1,13 @@
+Package: clawbook-java
+Version: 0.8.0-1
+Architecture: all
+Maintainer: clawbook-lehre <noreply@github.com>
+Depends: openjdk-25-jdk-headless, maven
+Section: java
+Priority: optional
+Homepage: https://github.com/schlingensiepen/clawbook-apt
+X-Clawbook-Art: technik
+Description: Java-Werkzeuge: OpenJDK 25, Maven und Gradle
+ Technikpaket für clawbook-lehre. OpenJDK 25 und Maven aus Debian,
+ Gradle 9 von gradle.org unter /opt/gradle (die Fassung in Debian ist zu
+ alt für Java 25), dazu das Java-Erweiterungspaket für VS Code.

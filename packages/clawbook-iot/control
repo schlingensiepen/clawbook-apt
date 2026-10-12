@@ -1,0 +1,12 @@
+Package: clawbook-iot
+Version: 0.8.0-1
+Architecture: all
+Maintainer: clawbook-lehre <noreply@github.com>
+Depends: mosquitto-clients, python3-paho-mqtt
+Section: net
+Priority: optional
+Homepage: https://github.com/schlingensiepen/clawbook-apt
+X-Clawbook-Art: technik
+Description: IoT: MQTT-Clients und paho-mqtt
+ Technikpaket für clawbook-lehre. mosquitto_pub und mosquitto_sub sowie
+ die Python-Bibliothek paho-mqtt aus Debian.

@@ -1,0 +1,15 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: clawbook-modeling
+Source: https://github.com/schlingensiepen/clawbook-apt
+
+Files: *
+Copyright: clawbook-lehre
+License: Apache-2.0
+ Packaging. Full text: /usr/share/common-licenses/Apache-2.0
+
+Files: opt/plantuml/plantuml.jar
+Copyright: 2009-2026 Arnaud Roques
+License: MIT
+ PlantUML, MIT-licensed edition (plantuml-mit), unchanged jar from
+ https://github.com/plantuml/plantuml/releases. Full text:
+ /usr/share/doc/clawbook-modeling/plantuml/mit-license.txt

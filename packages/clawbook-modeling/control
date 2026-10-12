@@ -1,0 +1,13 @@
+Package: clawbook-modeling
+Version: 0.8.0-1
+Architecture: all
+Maintainer: clawbook-lehre <noreply@github.com>
+Depends: graphviz, openjdk-25-jre-headless
+Section: graphics
+Priority: optional
+Homepage: https://github.com/schlingensiepen/clawbook-apt
+X-Clawbook-Art: technik
+Description: Modellierung: PlantUML und Graphviz
+ Technikpaket für clawbook-lehre. PlantUML (aktuelles Jar in der
+ MIT-Fassung) unter /opt/plantuml mit dem Befehl plantuml, Graphviz aus
+ Debian, dazu die VS-Code-Erweiterung PlantUML (lokal rendern).

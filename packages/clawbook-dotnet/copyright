@@ -1,0 +1,22 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: clawbook-dotnet
+Source: https://github.com/schlingensiepen/clawbook-apt
+
+Files: *
+Copyright: clawbook-lehre
+License: Apache-2.0
+ Packaging. Full text: /usr/share/common-licenses/Apache-2.0
+
+Files: usr/lib/dotnet/*
+Copyright: .NET Foundation and Contributors, Microsoft Corporation
+License: MIT
+ .NET SDK, official binary tarball from https://dotnet.microsoft.com,
+ unchanged. Parts of it are under other open source licenses (Apache-2.0,
+ BSD and others), listed in /usr/share/doc/clawbook-dotnet/dotnet/
+ LICENSE.txt and ThirdPartyNotices.txt.
+
+Files: usr/lib/dotnet-tools/*
+Copyright: .NET Foundation and Contributors, Microsoft Corporation
+License: MIT
+ dotnet-ef (Entity Framework Core tools) from nuget.org, installed with
+ "dotnet tool install --tool-path".

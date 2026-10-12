@@ -1,0 +1,14 @@
+Package: kurs-iot
+Version: 0.8.0-1
+Architecture: all
+Maintainer: clawbook-lehre <noreply@github.com>
+Depends: clawbook-embedded, clawbook-iot, clawbook-nodered, clawbook-security, clawbook-webapi
+Section: metapackages
+Priority: optional
+Homepage: https://github.com/schlingensiepen/kurs-iot
+X-Clawbook-Art: kurs
+Description: Kurs IoT
+ Kurs-Paket für clawbook-lehre: ESP32 mit PlatformIO und Arduino, MQTT,
+ Node-RED, Netzwerkanalyse und Web-APIs. Bringt die Technikpakete
+ clawbook-embedded, clawbook-iot, clawbook-nodered, clawbook-security
+ und clawbook-webapi mit, dazu die Kursbeschreibung für das VSCodePack.

@@ -1,0 +1,31 @@
+#!/bin/bash
+# PostgreSQL 17 for "student" (s6 service of clawbook-db-postgres).
+# Data in the home volume, socket in /run/postgresql, TCP only on
+# localhost. Local connections: peer (as student without password);
+# TCP from localhost: trust (the container has one user; the port is
+# not published).
+set -euo pipefail
+PATH=/command:/usr/sbin:/usr/bin:/sbin:/bin
+
+USER_NAME=student
+USER_HOME=/home/${USER_NAME}
+PGBIN=/usr/lib/postgresql/17/bin
+DATA=${USER_HOME}/.local/share/postgresql/17
+
+install -d -m 2775 -o "${USER_NAME}" -g "${USER_NAME}" /run/postgresql
+
+if [ ! -s "${DATA}/PG_VERSION" ]; then
+  LOCALE=C.UTF-8
+  if locale -a 2>/dev/null | grep -qix 'de_DE.utf8'; then LOCALE=de_DE.UTF-8; fi
+  s6-setuidgid "${USER_NAME}" mkdir -p "${DATA}"
+  chmod 0700 "${DATA}"
+  s6-setuidgid "${USER_NAME}" "${PGBIN}/initdb" -D "${DATA}" -U "${USER_NAME}" \
+    --auth-local=peer --auth-host=trust -E UTF8 --locale="${LOCALE}" >/dev/null
+  # A database named like the user, so a plain "psql" works.
+  echo "CREATE DATABASE ${USER_NAME};" \
+    | s6-setuidgid "${USER_NAME}" "${PGBIN}/postgres" --single -D "${DATA}" postgres >/dev/null
+  echo "postgresql: new cluster in ${DATA}"
+fi
+
+exec s6-setuidgid "${USER_NAME}" "${PGBIN}/postgres" -D "${DATA}" \
+  -k /run/postgresql -c listen_addresses=localhost

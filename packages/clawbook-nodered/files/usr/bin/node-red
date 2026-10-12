@@ -1,0 +1,5 @@
+#!/bin/sh
+# Node-RED (clawbook-nodered) with the Node.js of the clawbook image.
+# The service runs as student on 127.0.0.1:1880; this command is for
+# running a second instance by hand (e.g. node-red -p 1881 -u /tmp/nr).
+exec node /usr/lib/clawbook/node-red/node_modules/node-red/red.js "$@"

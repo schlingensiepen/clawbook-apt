@@ -1,0 +1,13 @@
+#!/bin/bash
+# Node-RED for "student" (s6 service of clawbook-nodered).
+# The editor has no login, so it listens on 127.0.0.1 only; VS Code
+# forwards the port. Flows and settings live in ~/.node-red.
+set -euo pipefail
+PATH=/command:/usr/local/bin:/usr/bin:/bin
+
+USER_NAME=student
+USER_HOME=/home/${USER_NAME}
+
+exec s6-setuidgid "${USER_NAME}" env HOME="${USER_HOME}" NODE_RED_DISABLE_TELEMETRY=1 \
+  node /usr/lib/clawbook/node-red/node_modules/node-red/red.js \
+  --userDir "${USER_HOME}/.node-red" --port 1880 -D uiHost=127.0.0.1

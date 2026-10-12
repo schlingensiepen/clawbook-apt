@@ -1,0 +1,27 @@
+#!/bin/sh
+# - drops the default cluster Debian creates in /var/lib/postgresql
+#   (unused; the service runs as student with data in the home)
+# - starts the s6 service at once when s6 is running (s6-overlay reads
+#   /etc/services.d only at container start)
+set -e
+SVC=postgresql
+case "$1" in
+  configure)
+    if command -v pg_lsclusters >/dev/null 2>&1 \
+       && pg_lsclusters -h 2>/dev/null | awk '$1 == "17" && $2 == "main" { f = 1 } END { exit !f }'; then
+      pg_dropcluster --stop 17 main || true
+    fi
+    if [ -d /run/service ] && [ -x /command/s6-svscanctl ]; then
+      if [ -e "/run/service/$SVC" ]; then
+        if ! cmp -s "/etc/services.d/$SVC/run" "/run/service/$SVC/run"; then
+          cp "/etc/services.d/$SVC/run" "/run/service/$SVC/run"
+          /command/s6-svc -r "/run/service/$SVC" || true
+        fi
+      else
+        cp -a "/etc/services.d/$SVC" "/run/service/$SVC"
+      fi
+      /command/s6-svscanctl -a /run/service || true
+    fi
+    ;;
+esac
+exit 0

@@ -1,0 +1,13 @@
+Package: clawbook-spring
+Version: 0.8.0-1
+Architecture: all
+Maintainer: clawbook-lehre <noreply@github.com>
+Depends: clawbook-java
+Section: java
+Priority: optional
+Homepage: https://github.com/schlingensiepen/clawbook-apt
+X-Clawbook-Art: technik
+Description: Spring Boot: Spring-Boot-CLI und VS-Code-Erweiterungen
+ Technikpaket für clawbook-lehre. Spring-Boot-CLI (spring) aus Maven
+ Central unter /opt/spring, baut auf clawbook-java auf, dazu das Spring-
+ Boot-Erweiterungspaket für VS Code.

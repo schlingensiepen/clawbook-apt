@@ -1,0 +1,28 @@
+#!/bin/sh
+# Capture as student without sudo: dumpcap belongs to root:wireshark,
+# mode 0754, with only cap_net_raw. Debian's own way (install-setuid)
+# also sets cap_net_admin, which Docker's default bounding set does not
+# allow, so dumpcap would fail to start. The trigger on /usr/bin/dumpcap
+# re-applies this after every update of wireshark-common.
+set -e
+USER_NAME=student
+
+fix_dumpcap() {
+  getent group wireshark >/dev/null || groupadd --system wireshark
+  if id "$USER_NAME" >/dev/null 2>&1; then
+    usermod -a -G wireshark "$USER_NAME"
+  fi
+  [ -e /usr/bin/dumpcap ] || return 0
+  if dpkg-statoverride --list /usr/bin/dumpcap >/dev/null 2>&1; then
+    dpkg-statoverride --quiet --remove /usr/bin/dumpcap
+  fi
+  dpkg-statoverride --quiet --update --add root wireshark 0754 /usr/bin/dumpcap
+  if ! setcap cap_net_raw=eip /usr/bin/dumpcap; then
+    echo "clawbook-security: setcap on /usr/bin/dumpcap failed; capture needs sudo" >&2
+  fi
+}
+
+case "$1" in
+  configure|triggered) fix_dumpcap ;;
+esac
+exit 0

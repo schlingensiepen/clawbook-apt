@@ -1,0 +1,18 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: clawbook-nodered
+Source: https://github.com/schlingensiepen/clawbook-apt
+
+Files: *
+Copyright: clawbook-lehre
+License: Apache-2.0
+ Packaging. Full text: /usr/share/common-licenses/Apache-2.0
+
+Files: usr/lib/clawbook/node-red/*
+Copyright: OpenJS Foundation and other contributors; authors of the bundled npm packages
+License: Apache-2.0 and others
+ Node-RED (Apache-2.0) with its npm dependencies, installed unchanged with
+ "npm ci" from the lockfile. Node-RED license:
+ /usr/share/doc/clawbook-nodered/node-red/LICENSE; the license of each
+ bundled package is in its directory below
+ /usr/lib/clawbook/node-red/node_modules/; list of packages:
+ /usr/share/doc/clawbook-nodered/node-red/installed-packages.txt

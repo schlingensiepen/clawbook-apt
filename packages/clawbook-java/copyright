@@ -1,0 +1,15 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: clawbook-java
+Source: https://github.com/schlingensiepen/clawbook-apt
+
+Files: *
+Copyright: clawbook-lehre
+License: Apache-2.0
+ Packaging. Full text: /usr/share/common-licenses/Apache-2.0
+
+Files: opt/gradle/*
+Copyright: Gradle Inc. and the Gradle contributors
+License: Apache-2.0
+ Gradle binary distribution, unchanged, from https://gradle.org/releases/.
+ License and notices of the bundled libraries:
+ /usr/share/doc/clawbook-java/gradle/LICENSE and NOTICE.

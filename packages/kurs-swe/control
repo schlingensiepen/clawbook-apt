@@ -1,0 +1,15 @@
+Package: kurs-swe
+Version: 0.8.0-1
+Architecture: all
+Maintainer: clawbook-lehre <noreply@github.com>
+Depends: clawbook-spring, clawbook-dotnet, clawbook-db-postgres, clawbook-db-sqlite, clawbook-webapi, clawbook-modeling
+Section: metapackages
+Priority: optional
+Homepage: https://github.com/schlingensiepen/kurs-swe
+X-Clawbook-Art: kurs
+Description: Kurs Softwareengineering
+ Kurs-Paket für clawbook-lehre: Java mit Spring Boot, .NET mit Entity
+ Framework, PostgreSQL und SQLite, Web-APIs und Modellierung mit
+ PlantUML. Bringt die Technikpakete clawbook-spring, clawbook-dotnet,
+ clawbook-db-postgres, clawbook-db-sqlite, clawbook-webapi und
+ clawbook-modeling mit, dazu die Kursbeschreibung für das VSCodePack.

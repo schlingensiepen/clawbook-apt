@@ -1,0 +1,15 @@
+Package: clawbook-db-postgres
+Version: 0.8.0-1
+Architecture: all
+Maintainer: clawbook-lehre <noreply@github.com>
+Depends: postgresql-17, postgresql-client-17
+Section: database
+Priority: optional
+Homepage: https://github.com/schlingensiepen/clawbook-apt
+X-Clawbook-Art: technik
+Description: PostgreSQL 17 als Dienst für student
+ Technikpaket für clawbook-lehre. PostgreSQL 17 aus Debian, betrieben
+ als s6-Dienst unter dem Benutzer student. Die Daten liegen im Home
+ (~/.local/share/postgresql/17) und überstehen damit ein neues Image.
+ Zugriff mit psql ohne Passwort, über TCP nur von localhost. VS-Code-
+ Erweiterung: PostgreSQL von Microsoft.

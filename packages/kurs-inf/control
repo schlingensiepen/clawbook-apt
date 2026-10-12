@@ -1,0 +1,14 @@
+Package: kurs-inf
+Version: 0.8.0-1
+Architecture: all
+Maintainer: clawbook-lehre <noreply@github.com>
+Depends: clawbook-spring, clawbook-webapi, clawbook-db-sqlite
+Section: metapackages
+Priority: optional
+Homepage: https://github.com/schlingensiepen/kurs-inf
+X-Clawbook-Art: kurs
+Description: Kurs Ingenieurinformatik
+ Kurs-Paket für clawbook-lehre: Java mit Spring Boot, Web-APIs und SQLite.
+ Bringt die Technikpakete clawbook-spring (mit clawbook-java),
+ clawbook-webapi und clawbook-db-sqlite mit, dazu die Kursbeschreibung
+ für das VSCodePack.

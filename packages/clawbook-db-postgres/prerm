@@ -1,0 +1,15 @@
+#!/bin/sh
+# Stops and unregisters the s6 service before removal. The data in
+# ~/.local/share/postgresql stays.
+set -e
+SVC=postgresql
+case "$1" in
+  remove|deconfigure)
+    if [ -e "/run/service/$SVC" ] && [ -x /command/s6-svc ]; then
+      /command/s6-svc -wD -T 30000 -d "/run/service/$SVC" || true
+      rm -rf "/run/service/$SVC"
+      /command/s6-svscanctl -an /run/service || true
+    fi
+    ;;
+esac
+exit 0

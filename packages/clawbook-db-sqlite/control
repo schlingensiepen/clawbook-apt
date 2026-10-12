@@ -1,0 +1,12 @@
+Package: clawbook-db-sqlite
+Version: 0.8.0-1
+Architecture: all
+Maintainer: clawbook-lehre <noreply@github.com>
+Depends: sqlite3
+Section: database
+Priority: optional
+Homepage: https://github.com/schlingensiepen/clawbook-apt
+X-Clawbook-Art: technik
+Description: SQLite: sqlite3 und SQLite-Explorer für VS Code
+ Technikpaket für clawbook-lehre. Kommandozeile sqlite3 aus Debian, dazu
+ die VS-Code-Erweiterung SQLite Explorer im Container.
